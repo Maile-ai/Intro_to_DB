@@ -2,11 +2,11 @@ import mysql.connector
 
 def create_database():
     try:
-        # Directly use your verified password here for testing
+    
         connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Rles@22316429"  # Replace with the exact same one you used in MySQL terminal
+            password="Rles@22316429"
         )
         cursor = connection.cursor()
         cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
