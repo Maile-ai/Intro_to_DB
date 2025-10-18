@@ -1,5 +1,4 @@
 import mysql.connector
-from mysql.connector import Error
 
 def create_database():
     try:
@@ -9,16 +8,15 @@ def create_database():
             user="root",
             password="Rles@22316429"  # Replace with the exact same one you used in MySQL terminal
         )
+        cursor = connection.cursor()
+        cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+        print("Database 'alx_book_store' created successfully!")
 
-        if connection.is_connected():
-            cursor = connection.cursor()
-            cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
-            print("Database 'alx_book_store' created successfully!")
-
-    except Error as e:
-        print(f"Error connecting to MySQL or creating database: {e}")
+    except mysql.connector.Error as err:  # explicitly catch MySQL errors
+        print(f"Error connecting to MySQL or creating database: {err}")
 
     finally:
+        # Close cursor and connection properly
         if 'cursor' in locals() and cursor:
             cursor.close()
         if 'connection' in locals() and connection.is_connected():
