@@ -1,7 +1,8 @@
-IF EXISTS alx_book_store THEN
-    DROP DATABASE alx_book_store;
-END IF;
-CREATE DATABASE IF NOT EXISTS alx_book_store;
+-- Drop the database if it already exists
+DROP DATABASE IF EXISTS alx_book_store;
+
+-- Create the database
+CREATE DATABASE alx_book_store;
 
 -- Select the database
 USE alx_book_store;
