@@ -2,7 +2,7 @@
 DROP DATABASE IF EXISTS alx_book_store;
 
 -- Create the database
-CREATE DATABASE alx_book_store;
+CREATE DATABASE IF NOT EXISTS alx_book_store;
 
 -- Select the database
 USE alx_book_store;
